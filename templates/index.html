@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %} Welcome to  {% endblock %}
-
+{% block title %}Home{% endblock %}
 
 {% block body %}
-<div>Get started</div>
+<form action = "login" method="post">
+    <input type="text" name="username" placeholder="enter username" required/>
+    <input type="text" name="password" placeholder="enter password" required/>
+    <button type="submit" name="submit">submit</button>
+</form>
 {% endblock %}
