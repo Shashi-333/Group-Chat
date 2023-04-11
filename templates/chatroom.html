@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <!-- Navigation -->
+        </nav>
+        <div id = "main_selection">
+                <!-- Room selection -->
+            <nav>
+
+            </nav>
+            <div id="rightside-pannel">
+
+                
+                <div id="display-message-section">
+                </div>
+               <div id="input-area" class="input-group mb-3">
+                    <input type="text" id="user_message" class="form-control" placeholder="Type here..." aria-label="Type a message" aria-describedby="basic-addon2" autocomplete="off">
+                    <div class="input-group-append">
+                        <button id="send_message" class="btn btn-warning" type="button">SEND <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- socket io -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+
+        <script src="{{ url_for('static', filename='scripts/socketio.js') }}"></script>
+
+
+    </body>
+
+
+</html>
