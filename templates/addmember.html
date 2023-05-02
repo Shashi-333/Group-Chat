@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+    <form>
+    <label for="GroupName">Group:</label>
+    <select name="group" id="group">
+      {% for group in groups %}
+        <option value="{{ group }}">{{ group }}</option>
+      {% endfor %}
+    </select>
+  
+    <label for="Users">Users:</label>
+    <select name="users" id="users">
+    </select>
+  </form>
+  
+  <script>
+    const grpSelect = document.querySelector('#group');
+    const usersSelect = document.querySelector('#users');
+  
+    grpSelect.addEventListener('change', () => {
+        val=grpSelect.value
+      fetch(`/addmembersgrp/${val}`)
+        .then(response => response.json)
+        .then(users => {
+            console.log(users.list)
+            usersSelect.innerHTML = '';
+          for(let i=0;i<users.list.length;i++){
+            const option = document.createElement('option');
+            option.textContent = users.list[i]
+            usersSelect.appendChild(option);
+          };
+        });
+    });
+  </script> 
+{% endblock %}

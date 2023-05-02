@@ -5,11 +5,10 @@
 
 {% block body %}
         <form action = "{{ url_for('register')}}", method="POST">
-
+            
             {{ displayForm(form.username, 'enter Username') }}
             {{ displayForm(form.password, 'enter Password') }}
             {{ displayForm(form.email, 'enter Email') }}
-
             <div>
                 {{ form.submit }}
             </div>

@@ -8,24 +8,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="wholepanel">
-    <div id="chatbox">
-      <div id="chat-messages"></div>
-      <form id="message-form">
-        <input id="message-input" type="text" placeholder="Type your message...">
-        <button id="send-button" type="submit">Send</button>
-      </form>
-    </div>
-    
-    <div id="rightpanel">
-      <form action = "{{ url_for('create_group')}}" method="post" id="group-form">
-        <button id="create-button" type="submit">Create group</button>
-      </form>
-      <div id="groups">
-        <!-- group names display -->
-      </div>
-    </div> 
-  </div>
-    <script src="/static/scripts/socket.js"></script>
+          <form action="{{ url_for('logout')}}" >
+            <button type="submit" id="logout" >Logout</button>
+          </form>
+          <div id="chatbox">
+            <div id="chat-messages">
+              <form id="message-header"></form>
+              <form id="user-header"></form>
+            </div>
+            <form id="message-form">
+              <input id="message-input" type="text" placeholder="Type your message...">
+              <button id="send-button" type="submit">Send</button>
+            </form>
+          </div>
+          
+          <div id="rightpanel">
+            <form action="{{ url_for('create_group')}}" id="group-form">
+              <input type="text" id="groupname" name="groupname" placeholder="enter groupname"/>
+              <button id="creategroup" type="submit">Create group</button>
+            </form>
+            <form action="{{ url_for('addmember')}}" id="addmember-form">
+              <button id="creategroup" type="submit">Add member</button>
+            </form>
+            <!-- to display Group Buttons  -->
+            <div class="grpclass">
+              <div id="group-container">
+                <!-- <button id="grpbutton1" type="submit"></button>  -->
+              </div>
+              </div>
+              
+          </div>
+
+    <script src="/static/scripts/chatroom.js"></script>
   </body>
 </html>

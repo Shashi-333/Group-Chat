@@ -4,33 +4,22 @@
 
 {% block body %}
 
-        <form> 
-            <button onclick="loadOther()">register user</button>
-            <div id="content"></div>
-
-                <script>
-                    function loadOther() {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.open("register.html", true);
-                        xhttp.send();
-                    }
-                </script>
+        <form action = "{{ url_for('register')}}", method="POST">
+            <input type="text" name="username" placeholder="enter username"/>
+            <input type="text" name="password" placeholder="enter password"/>
+            <input type="text" name="email" placeholder="enter email" Email/>
+            <button type="submit" name="submit">addusers</button>
             <div>
                 {{csrf_token }}
             </div>
         </form>
-
-        <form action = "{{ url_for('delusers')}}", method="post">
-            <div>
-                <input type="text" name = "delusers" />
-            </div> 
-            <div>
-                <button type="submit" >delusers</button>
-            </div>
+        <form action = "{{ url_for('delusers')}}", method="POST">
+            <input type="text" name="username" placeholder="enter username" Username/>
+            <button type="submit" name="submit">delusers</button>
             <div>
                 {{csrf_token }}
             </div>
-        </form>
+            </form>
         <form action = "{{ url_for('chatroom')}}", method="post">
             <div>
                 <button type="submit">chatroom</button>
